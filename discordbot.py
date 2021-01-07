@@ -24,33 +24,14 @@ async def neko(ctx):
     await ctx.send('にゃーん')
     
 @bot.command()
-async def dice(message):
-    if message.author.bot:
+    """Rolls a dice in NdN format."""
+    try:
+        rolls, limit = map(int, dice.split('d'))
+    except Exception:
+        await bot.say('Format has to be in NdN!')
         return
-    if message.content.startswith("!dice"):
-        # 入力された内容を受け取る
-        say = message.content 
 
-        # [!dice ]部分を消し、AdBのdで区切ってリスト化する
-        order = say.strip('!dice ')
-        cnt, mx = list(map(int, order.split('d'))) # さいころの個数と面数
-        dice = diceroll(cnt, mx) # 和を計算する関数(後述)
-        await message.channel.send(dice[cnt])
-        del dice[cnt]
-
-        # さいころの目の総和の内訳を表示する
-        await message.channel.send(dice)
-
-def diceroll(cnt, max):
-    total = 0
-    num_list = []
-    for i in range(0, cnt):
-        # ランダムに1からサイコロの面数までの和を取得しリストに入れる
-        num = random.randint(1, max)
-        num_list.append(num)
-    # さいころの目の総和を計算しリストに入れる
-    total = sum(num_list)
-    num_list.append(total)
-    return num_list
-
+    result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
+    await bot.say(result)
+                  
 bot.run(token)
