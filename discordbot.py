@@ -24,6 +24,7 @@ async def neko(ctx):
     await ctx.send('にゃーん')
     
 @bot.command()
+async def roll(dice : str):
     try:
         rolls, limit = map(int, dice.split('d'))
     except Exception:
