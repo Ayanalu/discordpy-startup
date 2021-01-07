@@ -6,7 +6,7 @@ import random
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-
+# Error時のイベント
 @bot.event
 async def on_command_error(ctx, error):
 #     orig_error = getattr(error, "original", error)
@@ -27,11 +27,21 @@ async def neko(ctx):
 async def vote(ctx, *, question):
     msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
     await msg.add_reaction("✅")
+
     
 @bot.command()
 async def roll(ctx, dice : str):
     rolls, limit = map(int, dice.split('d'))
-    result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-    await ctx.send(result + " → 合計")
+    
+    total = 0
+    num_list = []
+    for i in range(0, rolls):
+        num = random.randint(1, limit)
+        num_list.append(num)
+    total = sum(num_list)
+    num_list.append(total)
+    
+#     result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
+    await ctx.send(num_list + "/n → " + total)
                   
 bot.run(token)
