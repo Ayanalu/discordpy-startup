@@ -15,8 +15,12 @@ async def on_command_error(ctx, error):
     await ctx.send(f"{ctx.message.author.name}さん 何を言っているの？")
     
 @bot.event
-async def on_message_delete(message):
-    await ctx.send(f"{message.author.name}さんのメッセージが削除されました:\n```\n{message.content}\n```")
+async def on_reaction_add(reaction, user):
+    message = reaction.message
+    emoji = reaction.emoji.id
+    print("123")
+    if emoji == 711499579442462740:
+        message.delete
 
 
 @bot.command()
