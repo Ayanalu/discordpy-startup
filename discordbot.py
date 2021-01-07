@@ -11,7 +11,7 @@ async def on_command_error(ctx, error):
 #     orig_error = getattr(error, "original", error)
 #     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
 #     await ctx.send(error_msg)
-    await ctx.send("{ctx.message.author.name}さん 何を言っているの？")
+    await ctx.send(f"{ctx.message.author.name}さん 何を言っているの？")
 
 
 @bot.command()
