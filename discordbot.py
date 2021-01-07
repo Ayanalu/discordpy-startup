@@ -17,8 +17,11 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_reaction_add(reaction, user):
     if reaction.count == 2:
-        if reaction.emoji == "\N{DIGIT SIX}\N{COMBINING ENCLOSING KEYCAP}":
-             await reaction.message.channel.send("6")
+        if reaction.emoji == "\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}":
+            dice = diceroll(1, 100)
+            await reaction.message.channel.send(dice[1])
+            del dice[1]
+            await reaction.message.channel.send(dice)
 
 @bot.command()
 async def ping(ctx):
@@ -29,8 +32,9 @@ async def neko(ctx):
     msg = await ctx.send('にゃーん')
     
 @bot.command()
-async def vote(ctx, *, question):
-    msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
+# async def dice(ctx, *, question):
+async def dice(ctx):
+    msg = await ctx.send(f'1 : 1D100\n2 : 1D10\n3 : 3D6\n4 : 1D6\n5 : 1D4\n6 : 2D3')
     await msg.add_reaction("\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}")
     await msg.add_reaction("\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}")
     await msg.add_reaction("\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}")
@@ -54,5 +58,15 @@ async def roll(ctx, dice : str):
         num_list.append(num)
     total = sum(num_list)
     await ctx.send(f'{num_list}\n→ {total}')
+    
+def diceroll(rolls : int, limit : int):
+    total = 0
+    num_list = []
+    for i in range(0, rolls):
+        num = random.randint(1, limit)
+        num_list.append(num)
+    total = sum(num_list)
+    num_list.append(total)
+    return num_list
                   
 bot.run(token)
