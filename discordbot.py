@@ -19,22 +19,34 @@ async def on_reaction_add(reaction, user):
     if reaction.count == 2:
         if reaction.emoji == "\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 100)
-            prev(1, dice, reaction)
+            await reaction.message.channel.send(f'**{dice[1]}**')
+            del dice[1]
+            await reaction.message.channel.send(f'内訳：{dice}')
         if reaction.emoji == "\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 10)
-            prev(1, dice, reaction)
+            await reaction.message.channel.send(f'**{dice[1]}**')
+            del dice[1]
+            await reaction.message.channel.send(f'内訳：{dice}')
         if reaction.emoji == "\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(3, 6)
-            prev(3, dice, reaction)
+            await reaction.message.channel.send(f'**{dice[3]}**')
+            del dice[3]
+            await reaction.message.channel.send(f'内訳：{dice}')
         if reaction.emoji == "\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 6)
-            prev(1, dice, reaction)
+            await reaction.message.channel.send(f'**{dice[1]}**')
+            del dice[1]
+            await reaction.message.channel.send(f'内訳：{dice}')
         if reaction.emoji == "\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 4)
-            prev(1, dice, reaction)        
+            await reaction.message.channel.send(f'**{dice[1]}**')
+            del dice[1]
+            await reaction.message.channel.send(f'内訳：{dice}')  
         if reaction.emoji == "\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(2, 3)
-            prev(2, dice, reaction)
+            await reaction.message.channel.send(f'**{dice[2]}**')
+            del dice[2]
+            await reaction.message.channel.send(f'内訳：{dice}')
             
             
 @bot.command()
@@ -65,8 +77,8 @@ async def dice(ctx):
 async def roll(ctx, dice : str):
     rolls, limit = map(int, dice.split('d'))
     dice = diceroll(rolls, limit)
-    await reaction.message.channel.send(f'**{dice[1]}**')
-    del dice[1]
+    await reaction.message.channel.send(f'**{dice[rolls]}**')
+    del dice[rolls]
     await reaction.message.channel.send(f'内訳：{dice}')    
 
     
@@ -79,10 +91,5 @@ def diceroll(rolls : int, limit : int):
     total = sum(num_list)
     num_list.append(total)
     return num_list
-
-async def prev(limit, dice, reaction):
-    await reaction.message.channel.send(f'**{dice[limit]}**')
-    del dice[limit]
-    await reaction.message.channel.send(f'内訳：{dice}')
-                  
+                 
 bot.run(token)
