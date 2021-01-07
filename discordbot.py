@@ -22,12 +22,11 @@ async def ping(ctx):
 @bot.command()
 async def neko(ctx):
     msg = await ctx.send('にゃーん')
-    await msg.add_reaction("\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}")
     
 @bot.command()
 async def vote(ctx, *, question):
     msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
-    await msg.add_reaction("\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{WHITE HEAVY CHECK MARK (U+2705)}")
     
 @bot.command()
 async def roll(ctx, dice : str):
