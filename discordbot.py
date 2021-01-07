@@ -22,7 +22,7 @@ async def ping(ctx):
 @bot.command()
 async def neko(ctx):
     await ctx.send('にゃーん')
-    await message.add_reaction("😙")
+    await ctx.add_reaction("😙")
     
 @bot.command()
 async def roll(ctx, dice : str):
