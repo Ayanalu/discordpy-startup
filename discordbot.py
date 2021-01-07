@@ -15,8 +15,8 @@ async def on_command_error(ctx, error):
     await ctx.send(f"{ctx.message.author.name}さん 何を言っているの？")
     
 @bot.event
-async def on_message_delete(ctx, message):
-#     channel = client.get_channel(DEBUG_CHANNEL_ID)
+async def on_message_delete(message):
+    channel = client.get_channel(DEBUG_CHANNEL_ID)
     await ctx.send(f"{message.author.name}さんのメッセージが削除されました:\n```\n{message.content}\n```")
 
 
