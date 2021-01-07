@@ -16,7 +16,7 @@ async def on_command_error(ctx, error):
     
 @bot.event
 async def on_reaction_add(reaction, user):
-    print(reaction.emoji.id)
+    print(f'{reaction.emoji.id}')
 
 
 @bot.command()
