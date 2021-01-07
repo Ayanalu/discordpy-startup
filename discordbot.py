@@ -34,6 +34,7 @@ async def neko(ctx):
 @bot.command()
 async def vote(ctx, *, question):
     msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
+    print(✅)
     await msg.add_reaction("✅")
 
     
