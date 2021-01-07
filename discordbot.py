@@ -22,17 +22,12 @@ async def ping(ctx):
 @bot.command()
 async def neko(ctx):
     await ctx.send('にゃーん')
-    await ctx.add_reaction("😙")
     
 @bot.command()
 async def roll(ctx, dice : str):
-    try:
-        rolls, limit = map(int, dice.split('d'))
-    except Exception:
-        await ctx.send('Format has to be in NdN!')
-        return
+    rolls, limit = map(int, dice.split('d'))
 
     result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-    await ctx.send(result + "→ 合計")
+    await ctx.send(result + " → 合計")
                   
 bot.run(token)
