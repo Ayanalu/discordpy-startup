@@ -21,8 +21,8 @@ async def ping(ctx):
 
 @bot.command()
 async def neko(ctx):
-    await ctx.send('にゃーん')
-    await ctx.send(':ballot_box_with_check:')
+    msg = await ctx.send('にゃーん')
+    await msg.add_reaction(':ballot_box_with_check:')
     
 @bot.command()
 async def vote(ctx, *, question):
