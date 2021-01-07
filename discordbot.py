@@ -24,8 +24,9 @@ async def neko(ctx):
     await ctx.send('にゃーん')
     
 @bot.command()
-async def test(ctx):
-    await ctx.reaction_add('1️⃣')
+async def vote(ctx, *, question):
+    msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
+    await msg.add_reaction('✅')
     
 @bot.command()
 async def roll(ctx, dice : str):
