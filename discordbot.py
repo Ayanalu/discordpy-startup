@@ -24,7 +24,7 @@ async def neko(ctx):
     await ctx.send('にゃーん')
     
 @bot.command()
-async def roll(dice : str):
+async def roll(ctx, dice : str):
 #     try:
     rolls, limit = map(int, dice.split('d'))
 #     except Exception:
@@ -32,6 +32,6 @@ async def roll(dice : str):
 #         return
 
     result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-    await bot.say(result)
+    await ctx.send(result)
                   
 bot.run(token)
