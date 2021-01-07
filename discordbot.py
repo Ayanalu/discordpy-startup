@@ -42,6 +42,6 @@ async def roll(ctx, dice : str):
     num_list.append(total)
     
 #     result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
-    await ctx.send(num_list + "/n → " + total)
+    await ctx.send(f'{num_list} /n → {total}')
                   
 bot.run(token)
