@@ -25,11 +25,11 @@ async def neko(ctx):
     
 @bot.command()
 async def roll(dice : str):
-    try:
-        rolls, limit = map(int, dice.split('d'))
-    except Exception:
-        await bot.say('Format has to be in NdN!')
-        return
+#     try:
+    rolls, limit = map(int, dice.split('d'))
+#     except Exception:
+#         await bot.say('Format has to be in NdN!')
+#         return
 
     result = ', '.join(str(random.randint(1, limit)) for r in range(rolls))
     await bot.say(result)
