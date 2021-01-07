@@ -13,6 +13,11 @@ async def on_command_error(ctx, error):
 #     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
 #     await ctx.send(error_msg)
     await ctx.send(f"{ctx.message.author.name}さん 何を言っているの？")
+    
+@bot.event
+async def on_message_delete(ctx, message):
+#     channel = client.get_channel(DEBUG_CHANNEL_ID)
+    await ctx.send(f"{message.author.name}さんのメッセージが削除されました:\n```\n{message.content}\n```")
 
 
 @bot.command()
@@ -27,10 +32,7 @@ async def neko(ctx):
 async def vote(ctx, *, question):
     msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
     await msg.add_reaction("✅")
-    await msg.add_reaction("✅")
-    await msg.add_reaction("✅")
-    await msg.add_reaction("✅")
-    await msg.add_reaction("✅")
+
     
 @bot.command()
 async def roll(ctx, dice : str):
