@@ -22,12 +22,12 @@ async def ping(ctx):
 @bot.command()
 async def neko(ctx):
     await ctx.send('にゃーん')
+    await ctx.send(':ballot_box_with_check:')
     
 @bot.command()
 async def vote(ctx, *, question):
-#     msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
-#     await msg.add_reaction(':ballot_box_with_check:')
-    await ctx.send(':ballot_box_with_check:')
+    msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
+    await msg.add_reaction(':ballot_box_with_check:')
     
 @bot.command()
 async def roll(ctx, dice : str):
