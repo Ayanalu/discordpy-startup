@@ -19,22 +19,22 @@ async def on_reaction_add(reaction, user):
     if reaction.count == 2:
         if reaction.emoji == "\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 100)
-            prev(1, dice)
+            prev(1, dice, reaction)
         if reaction.emoji == "\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 10)
-            prev(1, dice)
+            prev(1, dice, reaction)
         if reaction.emoji == "\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(3, 6)
-            prev(3, dice)
+            prev(3, dice, reaction)
         if reaction.emoji == "\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 6)
-            prev(1, dice)
+            prev(1, dice, reaction)
         if reaction.emoji == "\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 4)
-            prev(1, dice)        
+            prev(1, dice, reaction)        
         if reaction.emoji == "\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(2, 3)
-            prev(2, dice)
+            prev(2, dice, reaction)
             
             
 @bot.command()
@@ -80,7 +80,7 @@ def diceroll(rolls : int, limit : int):
     num_list.append(total)
     return num_list
 
-def prev(limit, dice):
+def prev(limit, dice, reaction):
     await reaction.message.channel.send(f'**{dice[limit]}**')
     del dice[limit]
     await reaction.message.channel.send(f'内訳：{dice}')
