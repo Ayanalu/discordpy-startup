@@ -16,11 +16,7 @@ async def on_command_error(ctx, error):
     
 @bot.event
 async def on_reaction_add(reaction, user):
-    message = reaction.message
-    emoji = reaction.emoji.id
-    print("123")
-    if emoji == 711499579442462740:
-        message.delete
+    await ctx.send(reaction.emoji.id)
 
 
 @bot.command()
@@ -34,7 +30,6 @@ async def neko(ctx):
 @bot.command()
 async def vote(ctx, *, question):
     msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
-    print(\:white_check_mark:)
     await msg.add_reaction("✅")
 
     
