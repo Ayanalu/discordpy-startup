@@ -17,7 +17,7 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_reaction_add(reaction, user):
     if reaction.count == 2:
-        if reaction.emoji == ":six:":
+        if reaction.emoji == "\N{DIGIT SIX}\N{COMBINING ENCLOSING KEYCAP}":
              await reaction.message.channel.send("6")
 
 @bot.command()
@@ -31,17 +31,17 @@ async def neko(ctx):
 @bot.command()
 async def vote(ctx, *, question):
     msg = await ctx.send(f'アンケート： {question}\n下の✔か☓で答えてください。')
-#     await msg.add_reaction(":zero:")
-    await msg.add_reaction("{:one:}")
-#     await msg.add_reaction(":two:")
-#     await msg.add_reaction(":three:")
-#     await msg.add_reaction(":four:")
-#     await msg.add_reaction(":five:")
-#     await msg.add_reaction(":six:")
-#     await msg.add_reaction(":seven:")
-#     await msg.add_reaction(":eight:")
-#     await msg.add_reaction(":nine:")
-#     await msg.add_reaction(":keycap_ten:")
+    await msg.add_reaction("\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT FIVE}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT SIX}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT SEVEN}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction("\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}")
+
 
 @bot.command()
 async def roll(ctx, dice : str):
