@@ -16,7 +16,7 @@ async def on_command_error(ctx, error):
     
 @bot.event
 async def on_reaction_add(reaction, user):
-    if reaction.count == 1:
+    if reaction.count == :
         if reaction.emoji == "✅":
              await reaction.message.channel.send("aaaaaaaaaaaaaaaaaa")
 
