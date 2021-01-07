@@ -80,7 +80,7 @@ def diceroll(rolls : int, limit : int):
     num_list.append(total)
     return num_list
 
-def prev(limit, dice, reaction):
+async def prev(limit, dice, reaction):
     await reaction.message.channel.send(f'**{dice[limit]}**')
     del dice[limit]
     await reaction.message.channel.send(f'内訳：{dice}')
