@@ -24,6 +24,10 @@ async def neko(ctx):
     await ctx.send('にゃーん')
     
 @bot.command()
+async def test(ctx):
+    await ctx.reaction_add('1️⃣')
+    
+@bot.command()
 async def roll(ctx, dice : str):
     rolls, limit = map(int, dice.split('d'))
 
