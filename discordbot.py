@@ -42,7 +42,7 @@ async def on_reaction_add(reaction, user):
             await reaction.message.channel.send(f'**{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'内訳：{dice}')  
-        if reaction.emoji == "\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}":
+        if reaction.emoji == "\N{DIGIT FIVE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(2, 3)
             await reaction.message.channel.send(f'**{dice[2]}**')
             del dice[2]
@@ -67,19 +67,15 @@ async def dice(ctx):
     await msg.add_reaction("\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}")
     await msg.add_reaction("\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}")
     await msg.add_reaction("\N{DIGIT FIVE}\N{COMBINING ENCLOSING KEYCAP}")
-    await msg.add_reaction("\N{DIGIT SIX}\N{COMBINING ENCLOSING KEYCAP}")
-    await msg.add_reaction("\N{DIGIT SEVEN}\N{COMBINING ENCLOSING KEYCAP}")
-    await msg.add_reaction("\N{DIGIT EIGHT}\N{COMBINING ENCLOSING KEYCAP}")
-    await msg.add_reaction("\N{DIGIT NINE}\N{COMBINING ENCLOSING KEYCAP}")
 
 
 @bot.command()
 async def roll(ctx, dice : str):
     rolls, limit = map(int, dice.split('d'))
     dice = diceroll(rolls, limit)
-    await reaction.message.channel.send(f'**{dice[rolls]}**')
+    await ctx.send(f'**{dice[rolls]}**')
     del dice[rolls]
-    await reaction.message.channel.send(f'内訳：{dice}')    
+    await ctx.send(f'内訳：{dice}')    
 
     
 def diceroll(rolls : int, limit : int):
