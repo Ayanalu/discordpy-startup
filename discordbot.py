@@ -16,8 +16,9 @@ async def on_command_error(ctx, error):
     
 @bot.event
 async def on_reaction_add(reaction, user):
-    print(f'{reaction.emoji.id}')
-
+    if reaction.count == 1:
+        if reaction.emoji.id == "✅":
+             await reaction.message.channel.send("aaaaaaaaaaaaaaaaaa")
 
 @bot.command()
 async def ping(ctx):
