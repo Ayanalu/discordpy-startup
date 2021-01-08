@@ -21,7 +21,8 @@ async def on_reaction_add(reaction, user):
             dice = diceroll(1, 100)
             await reaction.message.channel.send(f'➨ **{dice[1]}**')
             del dice[1]
-            await reaction.message.channel.send(f'```内訳：1D100 {dice} {user.mention}```')
+            test = user.mention
+            await reaction.message.channel.send(f'```内訳：1D100 {dice} {test}```')
         if reaction.emoji == "\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 10)
             await reaction.message.channel.send(f'➨ **{dice[1]}**')
