@@ -17,7 +17,7 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_reaction_add(reaction, user):
     if reaction.count != 1:
-        if reaction.emoji.id == "<:1D100:797018895226634250>":
+        if reaction.emoji.id == 797018895226634250:
             dice = diceroll(1, 100)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
