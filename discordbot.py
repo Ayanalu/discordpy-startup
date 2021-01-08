@@ -17,32 +17,32 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_reaction_add(reaction, user):
     if reaction.count != 1:
-        if reaction.emoji == "<:1D100:797018895226634250>":
+        if reaction.emoji.id == "<:1D100:797018895226634250>":
             dice = diceroll(1, 100)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'```内訳：1D100 {dice}```')
-        if reaction.emoji == "<:1D10:797018894903934997>":
+        if reaction.emoji.id == "<:1D10:797018894903934997>":
             dice = diceroll(1, 10)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'```内訳：1D10 {dice}```')
-        if reaction.emoji == "<:3D6:797018895419965490>":
+        if reaction.emoji.id == "<:3D6:797018895419965490>":
             dice = diceroll(3, 6)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[3]}**')
             del dice[3]
             await reaction.message.channel.send(f'```内訳：3D6 {dice}```')
-        if reaction.emoji == "<:1D6:797018895382216724>":
+        if reaction.emoji.id == "<:1D6:797018895382216724>":
             dice = diceroll(1, 6)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'```内訳：1D6 {dice}```')
-        if reaction.emoji == "<:1D4:797018895206711297>":
+        if reaction.emoji.id == "<:1D4:797018895206711297>":
             dice = diceroll(1, 4)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'```内訳：1D4 {dice}```')  
-        if reaction.emoji == "<:2D3:797018895215099945>":
+        if reaction.emoji.id == "<:2D3:797018895215099945>":
             dice = diceroll(2, 3)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[2]}**')
             del dice[2]
