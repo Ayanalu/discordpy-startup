@@ -64,12 +64,12 @@ async def neko(ctx):
 async def dice(ctx):
     """ダイスを振る(簡易)"""
     msg = await ctx.send(f'>>> 0：1D100\n1：1D10\n2：3D6\n3：1D6\n4：1D4\n5：2D3')
-    await msg.add_reaction("<:1D100:797014355023626250>")
-    await msg.add_reaction("<:1D10:797014353463083048>")
-    await msg.add_reaction("<:3D6:797014353516822538>")
-    await msg.add_reaction("<:1D6:797014353110106113>")
-    await msg.add_reaction("<:1D4:797014353622073344>")
-    await msg.add_reaction("<:2D3:797014353190060044>")
+    await msg.add_reaction("<:1D100:797018895226634250>")
+    await msg.add_reaction("<:1D10:797018894903934997>")
+    await msg.add_reaction("<:3D6:797018895419965490>")
+    await msg.add_reaction("<:1D6:797018895382216724>")
+    await msg.add_reaction("<:1D4:797018895206711297>")
+    await msg.add_reaction("<:2D3:797018895215099945>")
 #     await msg.add_reaction("\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}")
 #     await msg.add_reaction("\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}")
 #     await msg.add_reaction("\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}")
