@@ -16,7 +16,7 @@ async def on_command_error(ctx, error):
     
 @bot.event
 async def on_reaction_add(reaction, user):
-    if reaction.count == 2:
+    if reaction.count != 1:
         if reaction.emoji == "\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 100)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
@@ -77,7 +77,7 @@ async def roll(ctx, dice : str):
     """NdNでダイスを振る"""
     rolls, limit = map(int, dice.split('d'))
     dice = diceroll(rolls, limit)
-    await ctx.send(f'{user.mention} ➨ **{dice[rolls]}**')
+    await ctx.send(f'{ctx.mention} ➨ **{dice[rolls]}**')
     del dice[rolls]
     await ctx.send(f'```内訳：{rolls}D{limit} {dice}```')    
 
