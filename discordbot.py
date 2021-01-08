@@ -77,7 +77,7 @@ async def roll(ctx, dice : str):
     """NdNでダイスを振る"""
     rolls, limit = map(int, dice.split('d'))
     dice = diceroll(rolls, limit)
-    await ctx.send(f'{ctx.mention} ➨ **{dice[rolls]}**')
+    await ctx.send(f'{ctx.author.mention} ➨ **{dice[rolls]}**')
     del dice[rolls]
     await ctx.send(f'```内訳：{rolls}D{limit} {dice}```')    
 
