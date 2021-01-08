@@ -64,7 +64,8 @@ async def neko(ctx):
 async def dice(ctx):
     """ダイスを振る(簡易)"""
     msg = await ctx.send(f'>>> 0：1D100\n1：1D10\n2：3D6\n3：1D6\n4：1D4\n5：2D3')
-    await msg.add_reaction("\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}")
+#     await msg.add_reaction("\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}")
+    await msg.add_reaction(":1D100:")
     await msg.add_reaction("\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}")
     await msg.add_reaction("\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}")
     await msg.add_reaction("\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}")
