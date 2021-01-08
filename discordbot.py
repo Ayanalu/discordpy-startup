@@ -19,34 +19,34 @@ async def on_reaction_add(reaction, user):
     if reaction.count == 2:
         if reaction.emoji == "\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 100)
-            await reaction.message.channel.send(f'➡ **{dice[1]}**')
+            await reaction.message.channel.send(f'➨ **{dice[1]}**')
             del dice[1]
-            await reaction.message.channel.send(f'```内訳：{dice}```')
+            await reaction.message.channel.send(f'```内訳：{dice} @{ctx.message.author.name} 1D100```')
         if reaction.emoji == "\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 10)
-            await reaction.message.channel.send(f'➡ **{dice[1]}**')
+            await reaction.message.channel.send(f'➨ **{dice[1]}**')
             del dice[1]
-            await reaction.message.channel.send(f'```内訳：{dice}```')
+            await reaction.message.channel.send(f'```内訳：{dice} @{ctx.message.author.name} 1D10```')
         if reaction.emoji == "\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(3, 6)
-            await reaction.message.channel.send(f'➡ **{dice[3]}**')
+            await reaction.message.channel.send(f'➨ **{dice[3]}**')
             del dice[3]
-            await reaction.message.channel.send(f'```内訳：{dice}```')
+            await reaction.message.channel.send(f'```内訳：{dice} @{ctx.message.author.name} 2D3```')
         if reaction.emoji == "\N{DIGIT THREE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 6)
-            await reaction.message.channel.send(f'➡ **{dice[1]}**')
+            await reaction.message.channel.send(f'➨ **{dice[1]}**')
             del dice[1]
-            await reaction.message.channel.send(f'```内訳：{dice}```')
+            await reaction.message.channel.send(f'```内訳：{dice} @{ctx.message.author.name} 1D6```')
         if reaction.emoji == "\N{DIGIT FOUR}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(1, 4)
-            await reaction.message.channel.send(f'➡ **{dice[1]}**')
+            await reaction.message.channel.send(f'➨ **{dice[1]}**')
             del dice[1]
-            await reaction.message.channel.send(f'```内訳：{dice}```')  
+            await reaction.message.channel.send(f'```内訳：{dice} @{ctx.message.author.name} 1D4```')  
         if reaction.emoji == "\N{DIGIT FIVE}\N{COMBINING ENCLOSING KEYCAP}":
             dice = diceroll(2, 3)
-            await reaction.message.channel.send(f'➡ **{dice[2]}**')
+            await reaction.message.channel.send(f'➨ **{dice[2]}**')
             del dice[2]
-            await reaction.message.channel.send(f'```内訳：{dice}```')
+            await reaction.message.channel.send(f'```内訳：{dice} @{ctx.message.author.name} 2D3```')
             
             
 @bot.command()
@@ -79,7 +79,7 @@ async def roll(ctx, dice : str):
     dice = diceroll(rolls, limit)
     await ctx.send(f'➡ **{dice[rolls]}**')
     del dice[rolls]
-    await ctx.send(f'```内訳：{dice}```')    
+    await ctx.send(f'```内訳：{dice} @{ctx.message.author.name} {rolls}D{limit}```')    
 
     
 def diceroll(rolls : int, limit : int):
