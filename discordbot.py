@@ -17,32 +17,32 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_reaction_add(reaction, user):
     if reaction.count != 1:
-        if reaction.emoji.id == 797018895226634250:
+        if reaction.emoji.id == 797023739665448970:
             dice = diceroll(1, 100)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'```内訳：1D100 {dice}```')
-        if reaction.emoji.id == 797018894903934997:
+        if reaction.emoji.id == 797023739635695627:
             dice = diceroll(1, 10)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'```内訳：1D10 {dice}```')
-        if reaction.emoji.id == 797018895419965490:
+        if reaction.emoji.id == 797023739740160031:
             dice = diceroll(3, 6)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[3]}**')
             del dice[3]
             await reaction.message.channel.send(f'```内訳：3D6 {dice}```')
-        if reaction.emoji.id == 797018895382216724:
+        if reaction.emoji.id == 797023739664662588:
             dice = diceroll(1, 6)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'```内訳：1D6 {dice}```')
-        if reaction.emoji.id == 797018895206711297:
+        if reaction.emoji.id == 797023739472511008:
             dice = diceroll(1, 4)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[1]}**')
             del dice[1]
             await reaction.message.channel.send(f'```内訳：1D4 {dice}```')  
-        if reaction.emoji.id == 797018895215099945:
+        if reaction.emoji.id == 797023739425456139:
             dice = diceroll(2, 3)
             await reaction.message.channel.send(f'{user.mention} ➨ **{dice[2]}**')
             del dice[2]
@@ -65,12 +65,12 @@ async def dice(ctx):
     """ダイスを振る(簡易)"""
     msg = await ctx.send(f'>>> リアクションを押してください')
 #     msg = await ctx.send(f'>>> 0：1D100\n1：1D10\n2：3D6\n3：1D6\n4：1D4\n5：2D3')
-    await msg.add_reaction("<:1D100:797018895226634250>")
-    await msg.add_reaction("<:1D10:797018894903934997>")
-    await msg.add_reaction("<:3D6:797018895419965490>")
-    await msg.add_reaction("<:1D6:797018895382216724>")
-    await msg.add_reaction("<:1D4:797018895206711297>")
-    await msg.add_reaction("<:2D3:797018895215099945>")
+    await msg.add_reaction("<:1D100:797023739665448970>")
+    await msg.add_reaction("<:1D10:797023739635695627>")
+    await msg.add_reaction("<:3D6:797023739740160031>")
+    await msg.add_reaction("<:1D6:797023739664662588>")
+    await msg.add_reaction("<:1D4:797023739472511008>")
+    await msg.add_reaction("<:2D3:797023739425456139>")
 #     await msg.add_reaction("\N{DIGIT ZERO}\N{COMBINING ENCLOSING KEYCAP}")
 #     await msg.add_reaction("\N{DIGIT ONE}\N{COMBINING ENCLOSING KEYCAP}")
 #     await msg.add_reaction("\N{DIGIT TWO}\N{COMBINING ENCLOSING KEYCAP}")
